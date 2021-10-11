@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<form action="addusers.php">
+<form action="adduser.php" method = "post">
   First name:<input type="text" name="forename"><br>
   Last name:<input type="text" name="surname"><br>
   Password:<input type="password" name="passwd"><br>
