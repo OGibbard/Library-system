@@ -1,5 +1,5 @@
 <?php
-include_once("connection.php")
+include_once("connection.php");
 switch($_POST["role"]){ 
     case "Pupil": 
         $role=0; 
