@@ -12,9 +12,9 @@ switch($_POST["role"]){
         break; 
 }
 
-$stmt = $conn->prepare("INSERT INTO TblUser (UserID,Gender,Surname,Forename,Password,House,Year ,Role)VALUES (null,:gender,:surname,:forename,:password,:house,:year,:role)"); 
+$stmt = $conn->prepare("INSERT INTO TblUsers (UserID,Gender,Surname,Forename,Password,House,Year ,Role)VALUES (null,:gender,:surname,:forename,:password,:house,:year,:role)");
 
-$stmt->bindParam(':forename', $_POST['forename']); 
+$stmt->bindParam(':forename', $_POST["forename"]); 
 $stmt->bindParam(':surname', $_POST['surname']); 
 $stmt->bindParam(':house', $_POST['house']); 
 $stmt->bindParam(':year', $_POST['year']); 
