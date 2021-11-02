@@ -32,4 +32,5 @@ echo $_POST["year"]."<br>";
 echo $_POST["passwd"]."<br>";
 echo $_POST["role"]."<br>";
 print_r($_POST)
+header('Location: users.php')
 ?>
