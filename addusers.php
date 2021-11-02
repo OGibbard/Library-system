@@ -1,4 +1,5 @@
 <?php
+header('Location: users.php');
 include_once("connection.php");
 switch($_POST["role"]){ 
     case "Pupil": 
@@ -31,6 +32,5 @@ echo $_POST["house"]."<br>";
 echo $_POST["year"]."<br>";
 echo $_POST["passwd"]."<br>";
 echo $_POST["role"]."<br>";
-print_r($_POST)
-header('Location: users.php')
+print_r($_POST);
 ?>
