@@ -16,7 +16,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 
     if($row['Password']== $_POST['Pword']){ 
          
-        header('Location: users.php'); 
+        header('Location: librarianpage.php'); 
         $_SESSION['name']=$row["surname"];
     }else{ 
 
@@ -27,8 +27,10 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     } 
 
 }                                                                                                                                                          
-if($row['Password']==
+if($_POST['Pword']=="")
+{
 header('Location: login.php');
+}
 $conn=null; 
 
 ?> 
