@@ -1,5 +1,5 @@
 <?php
-header('Location: users.php');
+header('Location: librarianpage.php');
 try{
     include_once("connection.php");
     array_map("htmlspecialchars", $_POST);
