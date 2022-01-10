@@ -4,12 +4,12 @@ try{
     include_once("connection.php");
     array_map("htmlspecialchars", $_POST);
 
-    $stmt = $conn->prepare("INSERT INTO books(UserID,Gender,Surname,Forename,Password,Role)VALUES (null,:gender,:surname,:forename,:password,:role)");
-    $stmt->bindParam(':forename', $_POST["forename"]); 
-    $stmt->bindParam(':surname', $_POST['surname']); 
-    $stmt->bindParam(':password', $_POST['passwd']); 
-    $stmt->bindParam(':gender', $_POST['gender']); 
-    $stmt->bindParam(':role', $role); 
+    $stmt = $conn->prepare("INSERT INTO books(Title,Author,Genre,Length,Publisher)VALUES (:Title,:Author,:Genre,:Length,:Publisher)");
+    $stmt->bindParam(':Title', $_POST["Title"]); 
+    $stmt->bindParam(':Author', $_POST['Author']);
+    $stmt->bindParam(':Genre', $Genre);  
+    $stmt->bindParam(':Length', $_POST['Length']); 
+    $stmt->bindParam(':Publisher', $_POST['Publisher']); 
     $stmt->execute();
     }
 catch(PDOException $e)
@@ -18,10 +18,10 @@ catch(PDOException $e)
     }
 $conn=null;
 
-echo $_POST["gender"]."<br>";
-echo $_POST["forename"]."<br>";
-echo $_POST["surname"]."<br>";
-echo $_POST["passwd"]."<br>";
-echo $_POST["role"]."<br>";
+echo $_POST["Title"]."<br>";
+echo $_POST["Author"]."<br>";
+echo $_POST["Genre"]."<br>";
+echo $_POST["Length"]."<br>";
+echo $_POST["Publisher"]."<br>";
 print_r($_POST);
 ?>
