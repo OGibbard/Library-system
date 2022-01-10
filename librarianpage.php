@@ -29,9 +29,6 @@ if ($_SESSION['role']==0)
 <form action="addbooks.php" method = "post">
   Title:<input type="text" name="Title"><br>
   Author:<input type="text" name="Author"><br>
-  Length:<input type="text" name="Length"><br>
-  Publisher:<input type="text" name="Publisher"><br>
-  <!--Creates a drop down list-->
   Genre:<select name="Genre">
 		<option value="comic">Comedy</option>
 		<option value="computer_science">Computer Science</option>
@@ -46,6 +43,11 @@ if ($_SESSION['role']==0)
     <option value="science">Science</option>
     <option value="signal_processing">Signal Processing</option>
   </select>
+  <br>
+  Length:<input type="text" name="Length"><br>
+  Publisher:<input type="text" name="Publisher"><br>
+  <br>
+  <input type="submit" value="Add Book">
 </form>
 
 
