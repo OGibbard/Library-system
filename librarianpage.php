@@ -8,6 +8,7 @@ if ($_SESSION['role']==0)
 {    
     header("Location:userpage.php"); 
 }
+
 ?> 
 
 <!DOCTYPE html>
@@ -20,9 +21,40 @@ if ($_SESSION['role']==0)
 <body>
 <form action="booklist.php">
 <input type="submit" value="Click here to see the book list.">
+
 </form>
 
+<form action="borrowedlist.php">
+<input type="submit" value="Click here to see the borrowed list.">
+</form>
 
+<form action='borrowbook.php' method="post">
+  Title:<select name="Title"><br>
+  <?php
+include_once("connection.php");
+$stmt = $conn->prepare("SELECT * FROM Books where borrowed='False'");
+$stmt->execute();
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+{
+  echo('<option value="'.$row["Title"].'">'.$row["Title"].'</option>');
+}
+?>
+  <input type="submit" value="Borrow Book">
+</form>
+
+<form action='unborrowbook.php' method="post">
+  Title:<select name="Title"><br>
+  <?php
+include_once("connection.php");
+$stmt = $conn->prepare("SELECT * FROM Books where borrowed='True'");
+$stmt->execute();
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+{
+  echo('<option value="'.$row["Title"].'">'.$row["Title"].'</option>');
+}
+?>
+  <input type="submit" value="Unborrow Book">
+</form>
 <br>
 
 

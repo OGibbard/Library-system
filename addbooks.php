@@ -5,7 +5,7 @@ try{
     print_r($_POST);
     array_map("htmlspecialchars", $_POST);
 
-    $stmt = $conn->prepare("INSERT INTO books (Title,Author,Genre,Length,Publisher)VALUES (:Title,:Author,:Genre,:Length,:Publisher)");
+    $stmt = $conn->prepare("INSERT INTO books (Title,Author,Genre,Length,Publisher,Borrowed)VALUES (:Title,:Author,:Genre,:Length,:Publisher,'False')");
     $stmt->bindParam(':Title', $_POST["Title"]); 
     $stmt->bindParam(':Author', $_POST['Author']);
     $stmt->bindParam(':Genre', $_POST['Genre']);  
